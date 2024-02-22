@@ -1,0 +1,41 @@
+{
+  "name": "hotel-rooms-ver2",
+  "version": "1.0.0",
+  "description": "A simple hotel rooms project",
+  "type": "module",
+  "scripts": {
+    "build": "run-s build:*",
+    "build:css": "sass styles/:app/styles/ --style=compressed",
+    "build:remix": "remix build",
+    "dev": "run-p dev:*",
+    "dev:css": "sass styles/:app/styles/ --watch ",
+    "dev:remix": "remix dev"
+  },
+  "author": "Anastazja Dziołak",
+  "license": "ISC",
+  "dependencies": {
+    "@mantine/core": "^7.5.3",
+    "@mantine/hooks": "^7.5.3",
+    "@reduxjs/toolkit": "^2.2.1",
+    "@remix-run/css-bundle": "^2.7.2",
+    "@remix-run/node": "^2.7.2",
+    "@remix-run/react": "^2.7.2",
+    "@remix-run/serve": "^2.7.2",
+    "isbot": "^4.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "sass": "^1.71.1",
+    "typescript": "^5.3.3",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.7.2",
+    "@types/react": "^18.2.57",
+    "@types/react-dom": "^18.2.19",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.35",
+    "postcss-preset-mantine": "^1.13.0",
+    "postcss-simple-vars": "^7.0.1"
+  }
+}

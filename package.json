@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev"
+    "dev": "remix dev",
+    "start": "remix-serve build"
   },
   "author": "Anastazja Dziołak",
   "license": "ISC",

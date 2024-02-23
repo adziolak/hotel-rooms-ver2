@@ -11,11 +11,21 @@
     border-radius: var(--mantine-radius-xl); 
 }
 
-.combobox {
-    --mantine-color-gray-4: transparent;
-    --mantine-color-white: transparent;
-    --mantine-primary-color-filled: transparent;
+.input {
+    flex: 1;
     --mantine-color-placeholder: var(--mantine-color-grape-8);
     --mantine-color-text: var(--mantine-color-grape-9);
-    flex: 1;
-} 
+}
+
+.input button {    
+    background: transparent;  
+    border: none;      
+}
+
+.button {
+    &:disabled,
+    &[data-disabled] {    
+      background-color: var(--mantine-color-grape-5);
+      color: var(--mantine-color-white);
+    }
+}

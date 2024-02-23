@@ -76,7 +76,7 @@ const BookingForm: FC<Props> = ({
                             rightSection={<IconChevronDown size={16} />}
                             rightSectionPointerEvents="none"
                             onClick={handleToggle}
-                            className={classes.combobox}
+                            className={classes.input}
                             h={"100%"}
                         >
                             <strong>{room?.name || <Input.Placeholder>Select Room</Input.Placeholder>}</strong>
@@ -88,6 +88,7 @@ const BookingForm: FC<Props> = ({
                             gradient={{ from: 'pink', to: 'grape', deg: 90 }} 
                             mr={{ base: "-1px" }}
                             style={{ borderRadius: '100px' }}
+                            className={classes.button}
                             onClick={handleClick}>
                             Book
                         </Button>   

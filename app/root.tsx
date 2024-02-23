@@ -1,4 +1,6 @@
 import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
+import styles from "./styles.css";
 import type { FC } from "react";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
@@ -11,12 +13,17 @@ import {
   ScrollRestoration,
   MetaFunction
 } from "@remix-run/react";
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import { ColorSchemeScript, MantineProvider, createTheme } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
+import Layout from "./components/Layout";
 
 export const links: LinksFunction = () => [
     ...(cssBundleHref
       ? [{ rel: 'stylesheet', href: cssBundleHref }]
       : []),
+    { rel: 'stylesheet', href: styles }  
   ];
 
 export const meta: MetaFunction = () => {
@@ -28,6 +35,15 @@ export const meta: MetaFunction = () => {
         },
       ];
 }
+
+const theme = createTheme({
+    fontFamily: "Nunito, sans-serif",
+    defaultGradient: {
+        from: 'orange',
+        to: 'red',
+        deg: 45,
+    }
+})
 
 const App: FC = () => {
   return (
@@ -43,11 +59,16 @@ const App: FC = () => {
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>
-            <Outlet />
-            <ScrollRestoration />
-            <Scripts />
-            <LiveReload />
+        <MantineProvider theme={theme}>
+          <Provider store={store}>            
+              <Layout>                                
+                  <Outlet />                
+              </Layout>
+              <ScrollRestoration />
+              <Scripts />
+              <LiveReload />
+              <Notifications position="top-right" zIndex={1000} />
+            </Provider>
         </MantineProvider>
       </body>
     </html>

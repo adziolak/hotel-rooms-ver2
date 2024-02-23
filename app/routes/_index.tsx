@@ -1,8 +1,12 @@
 import type { FC } from "react";
+import Rooms from "~/features/rooms";
 
 const Index: FC = () => {
     return (
-        <div>Hotel Rooms App</div>        
+        <div>
+            <Rooms />
+
+        </div>        
     )
 }
 

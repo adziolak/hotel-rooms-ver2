@@ -1,0 +1,8 @@
+.header {
+    background: var(--default-gradient);
+    border-bottom: 1px solid alpha(var(--mantine-color-gray-2), 0.2);
+}
+
+.logo {
+    opacity: 0.85;
+}

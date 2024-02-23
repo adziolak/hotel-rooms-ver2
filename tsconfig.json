@@ -1,11 +1,13 @@
 {
     "include": ["**/*.ts", "**/*.tsx"],
+    "exclude": ["node_modules"],
     "compilerOptions": {
-      "lib": ["DOM", "DOM.Iterable", "ES2019"],
+      "lib": ["dom", "dom.iterable", "esnext"],
       "isolatedModules": true,
       "esModuleInterop": true,
       "jsx": "react-jsx",
       "resolveJsonModule": true,
+      "module": "esnext",
       "moduleResolution": "node",
       "baseUrl": ".",
       "noEmit": true,
@@ -16,5 +18,5 @@
       "forceConsistentCasingInFileNames": true,
       "strict": true,
       "target": "ES2019"
-    }
+    }    
 }

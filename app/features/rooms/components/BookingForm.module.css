@@ -1,0 +1,13 @@
+.bookingForm {    
+    background: var(--mantine-color-violet-2);  
+    border-radius: var(--mantine-radius-xl); 
+}
+
+.bookingFormCombobox {
+    --mantine-color-gray-4: transparent;
+    --mantine-color-white: transparent;
+    --mantine-primary-color-filled: transparent;
+    --mantine-color-placeholder: var(--mantine-color-grape-8);
+    --mantine-color-text: var(--mantine-color-grape-9);
+    flex: 1;
+} 

@@ -1,0 +1,74 @@
+.room {
+    display: grid;
+    grid-template-columns: var(--mantine-spacing-lg) 1fr;
+    grid-template-areas: "status title " ". price";    
+    align-items: center;
+    grid-column-gap: var(--mantine-spacing-sm);  
+    font-weight: 800;  
+    min-height: 3.5rem;
+    
+    @media (min-width: $mantine-breakpoint-lg) {
+        grid-template-columns: var(--mantine-spacing-lg) 1fr auto;
+        grid-template-areas: "status title price";        
+    }   
+}
+
+.room[data-status="onRequest"] {
+    --color-bg: var(--mantine-color-yellow-2);
+    --color: var(--mantine-color-yellow-6);
+}
+
+.room[data-status="available"] {
+    --color-bg: var(--mantine-color-green-2);
+    --color: var(--mantine-color-green-6);
+}
+
+.room[data-status="soldOut"] {
+    --color-bg: var(--mantine-color-gray-2);
+    --color: var(--mantine-color-gray-6);
+}
+
+.room[data-status="error"] {
+    --color-bg: var(--mantine-color-red-2);
+    --color: var(--mantine-color-red-6);
+}
+
+.room:before,
+.room:after {
+    content: "";
+    grid-area: status;    
+    border-radius: var(--mantine-radius-lg);
+    justify-self: center;
+}
+
+.room:before {
+    width: rem(14px);
+    height: rem(14px);
+    background-color: var(--color-bg);
+}
+
+.room:after {        
+    width: rem(6px);
+    height: rem(6px);  
+    margin: rem(4px); 
+    background-color: var(--color);   
+}
+
+.title {
+    grid-area: title;
+    color: var(--mantine-color-gray-8);
+    font-size: var(--mantine-font-size-md);    
+}
+
+.description {
+    grid-area: description;
+    color: var(--mantine-color-gray-6);
+    font-size: var(--mantine-font-size-sm);    
+    font-weight: 600;
+}
+
+.price {
+    grid-area: price;
+    color: var(--mantine-color-violet-9);    
+    font-size: var(--mantine-font-size-lg);    
+}

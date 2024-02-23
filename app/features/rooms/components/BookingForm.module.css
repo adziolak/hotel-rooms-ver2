@@ -1,9 +1,17 @@
-.bookingForm {    
+.container {    
+    min-height: rem(150px);
+    
+    @media (min-width: $mantine-breakpoint-lg) {
+        min-height: rem(200px);
+    }
+}
+
+.form {
     background: var(--mantine-color-violet-2);  
     border-radius: var(--mantine-radius-xl); 
 }
 
-.bookingFormCombobox {
+.combobox {
     --mantine-color-gray-4: transparent;
     --mantine-color-white: transparent;
     --mantine-primary-color-filled: transparent;

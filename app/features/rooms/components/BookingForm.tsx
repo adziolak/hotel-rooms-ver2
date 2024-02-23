@@ -44,61 +44,68 @@ const BookingForm: FC<Props> = ({
         }   
     }, [combobox, data, entityState, getRoomsAvailability]);
 
-    return (                  
-        <Combobox
-            store={combobox}
-            onOptionSubmit={(id) => {
-                if (entityState) {
-                    const room = entityState.entities[parseInt(id)];                    
-                    setRoom(room);
+    const handleClick = () => {
+        if (room) {
+            onBookRoom(room);
+        }
+    }
 
-                    if (room.availability?.availabilityStatus !== AvailabilityStatus.Available) {                        
-                        notifications.show({ message: "This room is not available", color: "red" });
-                    }  else {
-                        onBookRoom(room);
-                    }  
-                }
+    return (      
+        <div className={classes.container}>          
+            <Combobox
+                store={combobox}
+                onOptionSubmit={(id) => {
+                    if (entityState) {
+                        const room = entityState.entities[parseInt(id)];                    
+                        setRoom(room);
 
-                combobox.closeDropdown();
-            }}                   
-        >                           
-            <Combobox.DropdownTarget>
-               <Flex className={classes.bookingForm} mt="md">                      
-                    <InputBase
-                        component="button"
-                        type="button"
-                        pointer
-                        rightSection={<IconChevronDown size={16} />}
-                        rightSectionPointerEvents="none"
-                        onClick={handleToggle}
-                        className={classes.bookingFormCombobox}
-                        h={"100%"}
-                    >
-                        <strong>{room?.name || <Input.Placeholder>Select Room</Input.Placeholder>}</strong>
-                    </InputBase>
-                                  
-                    <Button 
-                        disabled={room?.availability?.availabilityStatus !== AvailabilityStatus.Available}
-                        variant="gradient" 
-                        gradient={{ from: 'pink', to: 'grape', deg: 90 }} 
-                        mr={{ base: "-1px" }}
-                        style={{ borderRadius: '100px' }}>
-                        Book
-                    </Button>   
-                               
-                </Flex>
-            </Combobox.DropdownTarget>
-            
-            <Combobox.Dropdown>
-                <Combobox.Options mah={320} style={{ overflowY: 'auto' }}>
-                    {rooms.map((item) => (
-                        <Combobox.Option value={item.id.toString()} key={item.id}>
-                            <RoomOption {...item} />
-                        </Combobox.Option>
-                    ))}               
-                </Combobox.Options>
-            </Combobox.Dropdown>
-        </Combobox>        
+                        if (room.availability?.availabilityStatus !== AvailabilityStatus.Available) {                        
+                            notifications.show({ message: "This room is not available", color: "red" });
+                        }    
+                    }
+
+                    combobox.closeDropdown();
+                }}                   
+            >                           
+                <Combobox.DropdownTarget>
+                <Flex className={classes.form} mt="md">                      
+                        <InputBase
+                            component="button"
+                            type="button"
+                            pointer
+                            rightSection={<IconChevronDown size={16} />}
+                            rightSectionPointerEvents="none"
+                            onClick={handleToggle}
+                            className={classes.combobox}
+                            h={"100%"}
+                        >
+                            <strong>{room?.name || <Input.Placeholder>Select Room</Input.Placeholder>}</strong>
+                        </InputBase>
+                                    
+                        <Button 
+                            disabled={room?.availability?.availabilityStatus !== AvailabilityStatus.Available}
+                            variant="gradient" 
+                            gradient={{ from: 'pink', to: 'grape', deg: 90 }} 
+                            mr={{ base: "-1px" }}
+                            style={{ borderRadius: '100px' }}
+                            onClick={handleClick}>
+                            Book
+                        </Button>   
+                                
+                    </Flex>
+                </Combobox.DropdownTarget>
+                
+                <Combobox.Dropdown>
+                    <Combobox.Options mah={320} style={{ overflowY: 'auto' }}>
+                        {rooms.map((item) => (
+                            <Combobox.Option value={item.id.toString()} key={item.id}>
+                                <RoomOption {...item} />
+                            </Combobox.Option>
+                        ))}               
+                    </Combobox.Options>
+                </Combobox.Dropdown>
+            </Combobox>        
+        </div>   
     )
 }
 

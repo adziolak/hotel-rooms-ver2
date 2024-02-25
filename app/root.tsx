@@ -54,6 +54,7 @@ const App: FC = () => {
           name="viewport"
           content="width=device-width, initial-scale=1"
         />        
+        <link rel="icon" href="/_static/favicon.ico" />
         <Meta />        
         <Links />
         <ColorSchemeScript />

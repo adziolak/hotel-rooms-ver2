@@ -1,42 +1,46 @@
 {
-  "name": "hotel-rooms-ver2",
-  "version": "1.0.0",
-  "description": "A simple hotel rooms project",
-  "type": "module",
-  "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
-    "start": "remix-serve build"
-  },
-  "author": "Anastazja Dziołak",
-  "license": "ISC",
-  "dependencies": {
-    "@mantine/core": "^7.5.3",
-    "@mantine/hooks": "^7.5.3",
-    "@mantine/notifications": "^7.5.3",
-    "@reduxjs/toolkit": "^2.2.1",
-    "@remix-run/architect": "^2.7.2",
-    "@remix-run/css-bundle": "^2.7.2",
-    "@remix-run/node": "^2.7.2",
-    "@remix-run/react": "^2.7.2",
-    "@remix-run/serve": "^2.7.2",
-    "@tabler/icons-react": "^2.47.0",
-    "isbot": "^4.4.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^9.1.0",
-    "typescript": "^5.3.3",
-    "zod": "^3.22.4"
-  },
-  "devDependencies": {
-    "@remix-run/dev": "^2.7.2",
-    "@types/react": "^18.2.57",
-    "@types/react-dom": "^18.2.19",
-    "postcss": "^8.4.35",
-    "postcss-preset-mantine": "^1.13.0",
-    "postcss-simple-vars": "^7.0.1"
-  },
-  "engines": {
-    "node": ">=18"
-  }
+    "name": "hotel-rooms-ver2",
+    "version": "1.0.0",
+    "description": "A simple hotel rooms project",
+    "type": "module",
+    "scripts": {
+        "build": "remix build",
+        "dev": "remix dev --manual -c \"arc sandbox\"",
+        "start": "cross-env NODE_ENV=production arc sandbox"
+    },
+    "author": "Anastazja Dziołak",
+    "license": "ISC",
+    "dependencies": {
+        "@mantine/core": "^7.5.3",
+        "@mantine/hooks": "^7.5.3",
+        "@mantine/notifications": "^7.5.3",
+        "@reduxjs/toolkit": "^2.2.1",
+        "@remix-run/architect": "^2.7.2",
+        "@remix-run/css-bundle": "^2.7.2",
+        "@remix-run/node": "^2.7.2",
+        "@remix-run/react": "^2.7.2",
+        "@remix-run/serve": "^2.7.2",
+        "@tabler/icons-react": "^2.47.0",
+        "cross-env": "^7.0.3",
+        "isbot": "^4.4.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-redux": "^9.1.0",
+        "source-map-support": "^0.5.21",
+        "typescript": "^5.3.3",
+        "zod": "^3.22.4"
+    },
+    "devDependencies": {
+        "@architect/plugin-remix": "^0.2.3",
+        "@remix-run/dev": "^2.7.2",
+        "@types/react": "^18.2.57",
+        "@types/react-dom": "^18.2.19",
+        "@types/source-map-support": "^0.5.10",
+        "postcss": "^8.4.35",
+        "postcss-preset-mantine": "^1.13.0",
+        "postcss-simple-vars": "^7.0.1"
+    },
+    "engines": {
+        "node": ">=18"
+    }
 }

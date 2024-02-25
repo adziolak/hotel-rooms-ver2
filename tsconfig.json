@@ -2,13 +2,13 @@
     "include": ["**/*.ts", "**/*.tsx"],
     "exclude": ["node_modules"],
     "compilerOptions": {
-      "lib": ["dom", "dom.iterable", "esnext"],
+      "lib": ["dom", "dom.iterable", "ES2022"],
       "isolatedModules": true,
       "esModuleInterop": true,
       "jsx": "react-jsx",
       "resolveJsonModule": true,
-      "module": "esnext",
-      "moduleResolution": "node",
+      "module": "ES2022",
+      "moduleResolution": "Bundler",
       "baseUrl": ".",
       "noEmit": true,
       "paths": {
@@ -16,6 +16,7 @@
       },
       "allowJs": true,
       "forceConsistentCasingInFileNames": true,
+      "allowSyntheticDefaultImports": true,
       "strict": true,
       "target": "ES2019"
     }    
